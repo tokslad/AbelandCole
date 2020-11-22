@@ -16,9 +16,19 @@ namespace AbelandcoleProject.Utilities
 
         [BeforeScenario]
         public void BeforeScenario()
+            
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
+            ChromeOptions option = new ChromeOptions();
+            option.AddArguments("start-maximize");
+            option.AddArguments("--disable-gup");
+            option.AddArguments("--headless");
+            
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            Console.WriteLine("Setup");
+            Driver = new ChromeDriver(option);
+            
+            //driver = new ChromeDriver();
+            //driver.Manage().Window.Maximize();
         }
 
         [AfterScenario]

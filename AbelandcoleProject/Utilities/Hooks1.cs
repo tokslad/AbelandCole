@@ -12,23 +12,23 @@ namespace AbelandcoleProject.Utilities
     public class Hooks1
     {
         public static IWebDriver driver;
-        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
+       
 
         [BeforeScenario]
         public void BeforeScenario()
             
         {
-            ChromeOptions option = new ChromeOptions();
-            option.AddArguments("start-maximize");
-            option.AddArguments("--disable-gup");
-            option.AddArguments("--headless");
+//             ChromeOptions option = new ChromeOptions();
+//             option.AddArguments("start-maximize");
+//             option.AddArguments("--disable-gup");
+//             option.AddArguments("--headless");
             
-            new DriverManager().SetUpDriver(new ChromeConfig());
-            Console.WriteLine("Setup");
-            Driver = new ChromeDriver(option);
+//             new DriverManager().SetUpDriver(new ChromeConfig());
+//             Console.WriteLine("Setup");
+//             Driver = new ChromeDriver(option);
             
-            //driver = new ChromeDriver();
-            //driver.Manage().Window.Maximize();
+            driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
         }
 
         [AfterScenario]
